@@ -1,0 +1,29 @@
+# Compute Performance Counters
+# Use: rocprof --input counters-compute.txt -o compute_results.csv ./app
+
+# Wavefront/workgroup launches
+pmc: SQ_WAVES
+
+# Vector ALU instructions (main compute path)
+pmc: SQ_INSTS_VALU
+
+# Scalar ALU instructions (control flow, indexing)
+pmc: SQ_INSTS_SALU
+
+# Vector memory instructions
+pmc: SQ_INSTS_VMEM_RD, SQ_INSTS_VMEM_WR
+
+# Scalar memory instructions
+pmc: SQ_INSTS_SMEM
+
+# Flat memory instructions (generic addressing)
+pmc: SQ_INSTS_FLAT
+
+# LDS instructions
+pmc: SQ_INSTS_LDS
+
+# Busy/stall cycles
+pmc: SQ_BUSY_CYCLES, SQ_WAIT_INST_VMEM
+
+# Active instruction tracking
+pmc: SQ_ACTIVE_INST_VALU, SQ_ACTIVE_INST_SCA
